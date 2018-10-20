@@ -33,7 +33,6 @@ const holdCallback = (direction) => {
 
   	IMU.getValue((err, data) => {
   		console.log(data);
-  	})
   	// 	if (err !== null) {
 		 //    console.error("Could not read sensor data: ", err);
 		 //    return;
@@ -41,11 +40,16 @@ const holdCallback = (direction) => {
 		 //  sensorData = data;
   	// });
 
-  	switch(direction) {
-  		case "up":
-	  		console.log("Accelleration is: ", JSON.stringify(sensorData.accel, null, "  "));
-  		 	break;
-  	}
+	  	switch(direction) {
+	  		case "up":
+		  		console.log("Accelleration is: ", JSON.stringify(data.accel, null, "  "));
+	  		 	break;
+	  		case "down":
+	  			console.log("Temp is: ", data.temperature);
+	  			break;
+	  	}
+  	});
+
 }
 
 
