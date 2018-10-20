@@ -31,6 +31,7 @@ senseLeds.setPixels(questionMark);
 senseLeds.getPixels((err, pixelArray)=>{
 var arrayNueva = _.clone(pixelArray);
 arrayNueva.splice(positionBar, BAR_LENGTH, barra);
+console.log(arrayNueva);
 senseLeds.setPixels(arrayNueva);
 
 });
