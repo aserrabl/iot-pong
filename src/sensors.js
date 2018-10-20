@@ -7,7 +7,7 @@ const IMU = new imu.IMU();
 
 const pressCallback = (direction) = {
 
-  	const sensorData = null;
+  	var sensorData = null;
  
   	IMU.getValue((err, data) => {
   		if (err !== null) {
