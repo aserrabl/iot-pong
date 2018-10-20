@@ -32,7 +32,7 @@ O, O, O, X, O, O, O, O
 senseLeds.setPixels(questionMark);
 
 senseLeds.getPixels((err, pixelArray)=>{
-var arrayNueva = _.clone(pixelArray
+var arrayNueva = _.clone(pixelArray);
 
 	arrayNueva[55]=[0,255,0];
 		arrayNueva[56]=[0,255,0];
@@ -51,7 +51,7 @@ setTimeout(()=>{
 
 });
 
-
+/*
 
 // const pressCallback = (direction) = {
 //
@@ -75,7 +75,7 @@ setTimeout(()=>{
 //   	}
 // }
 
-/*const holdCallback = (direction) => {
+const holdCallback = (direction) => {
 
   	const sensorData = null;
 
@@ -99,13 +99,11 @@ setTimeout(()=>{
 
 }
 
-
-
 JoystickLib.getJoystick().then(joystick => {
   //joystick.on("press", pressCallback);
   joystick.on("hold", holdCallback);
 });
-*/
+
 setInterval(() => {
 
 	IMU.getValue((err, data) => {
@@ -121,10 +119,10 @@ setInterval(() => {
 
 	  console.log("Temp is: ", data.temperature);
 	  console.log("Pressure is: ", data.pressure);
-	  console.log("Humidity is: ", data.humidity);*/
+	  console.log("Humidity is: ", data.humidity);
 	});
 
 
 },5000);
-
+*/
 
