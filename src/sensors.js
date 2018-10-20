@@ -55,9 +55,9 @@ setInterval(() => {
 	    return;
 	  }
 	  if (data.accel.x <= -INCLINATION) {
-	  	positionBar--;
+	  	if(positionBar > 0){	positionBar--;	}
 	  } else if (data.accel.x >= INCLINATION){
-	  	positionBar++;
+	  		if(positionBar < 4){	positionBar++;	}
 	  }
 	  console.log("Accelleration is: ", data.accel.x);
 	});
@@ -65,7 +65,7 @@ setInterval(() => {
 	//if(positionBar < 4){	positionBar++;	}
 	
 
-},2000);
+},200);
 
 
 /*
