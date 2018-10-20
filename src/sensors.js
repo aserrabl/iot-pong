@@ -3,6 +3,8 @@ const imu = require("node-sense-hat").Imu;
 const JoystickLib = require("node-sense-hat").Joystick;
 const senseLeds = require('sense-hat-led');
 const barraColor = [255, 0, 0];
+const _ = require('lodash');
+const lodash = _;
 
 
 const IMU = new imu.IMU();
@@ -30,12 +32,26 @@ O, O, O, X, O, O, O, O
 senseLeds.setPixels(questionMark);
 
 senseLeds.getPixels((err, pixelArray)=>{
-  console.log(pixelArray[0])
+var arrayNueva = _.clone(pixelArray
+
+	arrayNueva[55]=[0,255,0];
+		arrayNueva[56]=[0,255,0];
+
+	arrayNueva[57]=[0,255,0];
+
+	arrayNueva[58]=[0,255,0];
+
+	arrayNueva[59]=[0,255,0];
+	arrayNueva[60]=[0,255,0];
+
+setTimeout(()=>{
+		senseLeds.setPixels(arrayNueva);
+
+}, 3000)
+
 });
 
-const drawBarra = () => {
-	senseLeds.setPixels(barra.positions[0], barraColor);
-};
+
 
 // const pressCallback = (direction) = {
 //
