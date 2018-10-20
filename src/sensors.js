@@ -8,6 +8,7 @@ const lodash = _;
 var positionBar = 2;
 
 const IMU = new imu.IMU();
+const INCLINATION = 0.3;
 
 const barra = [v, v, v, v];
 const BAR_LENGTH = barra.length;
@@ -47,9 +48,21 @@ setInterval(() => {
 	senseLeds.setPixels([...arrayNueva,...lastRow]);
 
 	});
-	if(positionBar < 4){
-		positionBar++;	
-	}
+
+	IMU.getValue((err, data) => {
+	  if (err !== null) {
+	    console.error("Could not read sensor data: ", err);
+	    return;
+	  }
+	  if (data.accel.x <= -INCLINATION) {
+	  	positionBar--;
+	  } else if (data.accel.x >= INCLINATION){
+	  	positionBar++;
+	  }
+	  console.log("Accelleration is: ", data.accel.x);
+	});
+
+	//if(positionBar < 4){	positionBar++;	}
 	
 
 },2000);
