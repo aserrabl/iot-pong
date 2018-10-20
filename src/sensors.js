@@ -32,7 +32,6 @@ const holdCallback = (direction) => {
   	const sensorData = null;
 
   	IMU.getValue((err, data) => {
-  		console.log(data);
   	// 	if (err !== null) {
 		 //    console.error("Could not read sensor data: ", err);
 		 //    return;
