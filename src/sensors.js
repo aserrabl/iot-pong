@@ -5,39 +5,41 @@ const JoystickLib = require("node-sense-hat").Joystick;
 
 const IMU = new imu.IMU();
 
-const pressCallback = (direction) = {
-
-  	var sensorData = null;
- 
-  	IMU.getValue((err, data) => {
-  		if (err !== null) {
-		    console.error("Could not read sensor data: ", err);
-		    return;
-		}
-		sensorData = data;
-  	});
-
-  	switch(direction) {
-  		case "up":
-  		 	console.log("Temp is: ", sensorData.temperature);
-  		 	break;
-  		 case "down":
-  		 	console.log("Humidity is: ", sensorData.humidity);
-  		 	break;
-  	}
-};
+// const pressCallback = (direction) = {
+//
+//   	// const sensorData = null;
+//
+//   	IMU.getValue((err, data) => {
+//   		if (err !== null) {
+// 		    console.error("Could not read sensor data: ", err);
+// 		    return;
+// 			}
+// 		// sensorData = data;
+//   	});
+//
+//   	switch(direction) {
+//   		case "up":
+//   		 	console.log("Temp is: ", sensorData.temperature);
+//   		 	break;
+//   		 case "down":
+//   		 	console.log("Humidity is: ", sensorData.humidity);
+//   		 	break;
+//   	}
+// }
 
 const holdCallback = (direction) => {
 
   	const sensorData = null;
- 
+
   	IMU.getValue((err, data) => {
-  		if (err !== null) {
-		    console.error("Could not read sensor data: ", err);
-		    return;
-		}
-		sensorData = data;
-  	});
+  		console.log(data);
+  	})
+  	// 	if (err !== null) {
+		 //    console.error("Could not read sensor data: ", err);
+		 //    return;
+    // }
+		 //  sensorData = data;
+  	// });
 
   	switch(direction) {
   		case "up":
@@ -49,7 +51,7 @@ const holdCallback = (direction) => {
 
 
 JoystickLib.getJoystick().then(joystick => {
-  joystick.on("press", pressCallback);
+  //joystick.on("press", pressCallback);
   joystick.on("hold", holdCallback);
 });
 /*
