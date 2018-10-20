@@ -4,7 +4,6 @@ const JoystickLib = require("node-sense-hat").Joystick;
 const senseLeds = require('sense-hat-led');
 const barraColor = [255, 0, 0];
 
-var pixelBuffer;
 
 const IMU = new imu.IMU();
 
@@ -13,6 +12,26 @@ const barra = {
 	colour: barraColor,
 	positions: [[0, 3], [0, 4]]
 };
+
+var X = [255, 0, 0];  // Red
+var O = [255, 255, 255];  // White
+
+var questionMark = [
+O, O, O, X, X, O, O, O,
+O, O, X, O, O, X, O, O,
+O, O, O, O, O, X, O, O,
+O, O, O, O, X, O, O, O,
+O, O, O, X, O, O, O, O,
+O, O, O, X, O, O, O, O,
+O, O, O, O, O, O, O, O,
+O, O, O, X, O, O, O, O
+];
+
+senseLeds.setPixels(questionMark);
+
+senseLeds.getPixels((err, pixelArray)=>{
+  console.log(pixelArray[0])
+});
 
 const drawBarra = () => {
 	senseLeds.setPixels(barra.positions[0], barraColor);
