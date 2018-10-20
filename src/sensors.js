@@ -34,7 +34,7 @@ arrayNueva.splice(56,8);
 const newLine = [0, 0, 0, 0, 0, 0, 0, 0];
 
 const lastRow = newLine.map((elem,i)=>{
-	if(i < posBar || i >= posBar + 4){
+	if(i < positionBar || i >= positionBar + BAR_LENGTH){
 		return O
 	}
 	return v;
