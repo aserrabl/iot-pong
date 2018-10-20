@@ -14,7 +14,7 @@ const barra = [v, v, v, v];
 const BAR_LENGTH = barra.length;
 
 var X = [0, 0, 255];  // Red
-var O = [255, 0, 0];  // White
+var O = [0, 0, 0];  // White
 
 var questionMark = [
 O, O, O, O, O, O, O, O,
