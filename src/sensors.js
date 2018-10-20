@@ -3,7 +3,9 @@ const imu = require("node-sense-hat").Imu;
 const JoystickLib = require("node-sense-hat").Joystick;
 const server = require('./server.js');
 
-//const IMU = new imu.IMU();
+
+server.start();
+const IMU = new imu.IMU();
 
 // const pressCallback = (direction) = {
 //
@@ -50,18 +52,15 @@ const holdCallback = (direction) => {
 	  			break;
 	  	}
   	});
-
 }
 
 
+JoystickLib.getJoystick().then(joystick => {
+  joystick.on("hold", holdCallback);
+});
 
-//JoystickLib.getJoystick().then(joystick => {
-  //joystick.on("press", pressCallback);
-  //joystick.on("hold", holdCallback);
-//});
 
-server();
-/*
+
 setInterval(() => {
 
 	IMU.getValue((err, data) => {
@@ -69,18 +68,12 @@ setInterval(() => {
 	    console.error("Could not read sensor data: ", err);
 	    return;
 	  }
-
 	  console.log("Accelleration is: ", JSON.stringify(data.accel, null, "  "));
 	  console.log("Gyroscope is: ", JSON.stringify(data.gyro, null, "  "));
-	  console.log("Compass is: ", JSON.stringify(data.compass, null, "  "));
 	  console.log("Fusion data is: ", JSON.stringify(data.fusionPose, null, "  "));
-
-	  console.log("Temp is: ", data.temperature);
-	  console.log("Pressure is: ", data.pressure);
-	  console.log("Humidity is: ", data.humidity);
 	});
 
 
-},5000);
-*/
+},1000);
+
 
