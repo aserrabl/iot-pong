@@ -1,7 +1,7 @@
 
 const imu = require("node-sense-hat").Imu;
 const JoystickLib = require("node-sense-hat").Joystick;
-const server = require('./server');
+const server = require('./server.js');
 
 const IMU = new imu.IMU();
 
