@@ -3,7 +3,7 @@ const imu = require("node-sense-hat").Imu;
 const JoystickLib = require("node-sense-hat").Joystick;
 const server = require('./server.js');
 
-const IMU = new imu.IMU();
+//const IMU = new imu.IMU();
 
 // const pressCallback = (direction) = {
 //
@@ -55,10 +55,10 @@ const holdCallback = (direction) => {
 
 
 
-JoystickLib.getJoystick().then(joystick => {
+//JoystickLib.getJoystick().then(joystick => {
   //joystick.on("press", pressCallback);
-  joystick.on("hold", holdCallback);
-});
+  //joystick.on("hold", holdCallback);
+//});
 
 server();
 /*
