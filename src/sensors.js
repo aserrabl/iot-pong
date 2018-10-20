@@ -66,7 +66,7 @@ setInterval(() => {
 	    return;
 	  }
 
-	  //console.log("Accelleration is: ", JSON.stringify(data.accel, null, "  "));
+	  console.log("Accelleration is: ", JSON.stringify(data.accel, null, "  "));
 	  console.log("Gyroscope is: ", JSON.stringify(data.gyro, null, "  "));
 	  //console.log("Compass is: ", JSON.stringify(data.compass, null, "  "));
 	  /*console.log("Fusion data is: ", JSON.stringify(data.fusionPose, null, "  "));
