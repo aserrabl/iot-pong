@@ -4,6 +4,8 @@ const senseLeds = require('sense-hat-led');
 const v = [0, 255, 0];
 const _ = require('lodash');
 const lodash = _;
+const server = require('./server.js');
+
 var positionBar = 2;
 
 const IMU = new imu.IMU();
@@ -11,6 +13,8 @@ const INCLINATION = 0.3;
 
 const barra = [v, v, v, v];
 const BAR_LENGTH = barra.length;
+
+server.start();
 
 var X = [0, 0, 255];  // Red
 var O = [0, 0, 0];  // White
