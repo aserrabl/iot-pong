@@ -14,6 +14,6 @@ WORKDIR /usr/src/app
 COPY --from=base /usr/src/app/node_modules ./node_modules
 COPY . ./
 
-RUN node --check src/app.js
+RUN node --check src/sensors.js
 
-CMD node src/app.js
+CMD node src/sensors.js
