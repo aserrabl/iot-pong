@@ -27,7 +27,7 @@ const IMU = new imu.IMU();
 //   	}
 // }
 
-const holdCallback = (direction) => {
+/*const holdCallback = (direction) => {
 
   	const sensorData = null;
 
@@ -57,7 +57,7 @@ JoystickLib.getJoystick().then(joystick => {
   //joystick.on("press", pressCallback);
   joystick.on("hold", holdCallback);
 });
-/*
+*/
 setInterval(() => {
 
 	IMU.getValue((err, data) => {
@@ -66,17 +66,17 @@ setInterval(() => {
 	    return;
 	  }
 
-	  console.log("Accelleration is: ", JSON.stringify(data.accel, null, "  "));
+	  //console.log("Accelleration is: ", JSON.stringify(data.accel, null, "  "));
 	  console.log("Gyroscope is: ", JSON.stringify(data.gyro, null, "  "));
-	  console.log("Compass is: ", JSON.stringify(data.compass, null, "  "));
-	  console.log("Fusion data is: ", JSON.stringify(data.fusionPose, null, "  "));
+	  //console.log("Compass is: ", JSON.stringify(data.compass, null, "  "));
+	  /*console.log("Fusion data is: ", JSON.stringify(data.fusionPose, null, "  "));
 
 	  console.log("Temp is: ", data.temperature);
 	  console.log("Pressure is: ", data.pressure);
-	  console.log("Humidity is: ", data.humidity);
+	  console.log("Humidity is: ", data.humidity);*/
 	});
 
 
 },5000);
-*/
+
 
