@@ -2,21 +2,18 @@
 const imu = require("node-sense-hat").Imu;
 const JoystickLib = require("node-sense-hat").Joystick;
 const senseLeds = require('sense-hat-led');
-const barraColor = [255, 0, 0];
+const v = [0, 255, 0];
 const _ = require('lodash');
 const lodash = _;
-
+var positionBar = 58;
 
 const IMU = new imu.IMU();
 
-const barra = {
-	size: 2,
-	colour: barraColor,
-	positions: [[0, 3], [0, 4]]
-};
+const barra = [v, v, v, v];
+const BAR_LENGTH = barra.length;
 
-var X = [255, 0, 0];  // Red
-var O = [255, 255, 255];  // White
+var X = [0, 0, 255];  // Red
+var O = [255, 0, 0];  // White
 
 var questionMark = [
 O, O, O, X, X, O, O, O,
@@ -33,21 +30,8 @@ senseLeds.setPixels(questionMark);
 
 senseLeds.getPixels((err, pixelArray)=>{
 var arrayNueva = _.clone(pixelArray);
-
-	arrayNueva[55]=[0,255,0];
-		arrayNueva[56]=[0,255,0];
-
-	arrayNueva[57]=[0,255,0];
-
-	arrayNueva[58]=[0,255,0];
-
-	arrayNueva[59]=[0,255,0];
-	arrayNueva[60]=[0,255,0];
-
-setTimeout(()=>{
-		senseLeds.setPixels(arrayNueva);
-
-}, 3000)
+arrayNueva.splice(positionBar, BAR_LENGTH, barra);
+senseLeds.setPixels(arrayNueva);
 
 });
 
