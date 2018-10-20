@@ -47,7 +47,7 @@ setInterval(() => {
 	senseLeds.setPixels([...arrayNueva,...lastRow]);
 
 	});
-	if(positionBar <= 4){
+	if(positionBar < 4){
 		positionBar++;	
 	}
 	
