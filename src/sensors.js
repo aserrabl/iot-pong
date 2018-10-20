@@ -41,7 +41,7 @@ const holdCallback = (direction) => {
 
 	  	switch(direction) {
 	  		case "up":
-		  		console.log("Accelleration is: ", JSON.stringify(data.accel, null, "  "));
+	  			console.log("Gyroscope is: ", JSON.stringify(data.gyro, null, "  "));
 	  		 	break;
 	  		case "down":
 	  			console.log("Temp is: ", data.temperature);
