@@ -5,7 +5,7 @@ const senseLeds = require('sense-hat-led');
 const v = [0, 255, 0];
 const _ = require('lodash');
 const lodash = _;
-var positionBar = 58;
+var positionBar = 2;
 
 const IMU = new imu.IMU();
 
@@ -30,11 +30,24 @@ senseLeds.setPixels(questionMark);
 
 senseLeds.getPixels((err, pixelArray)=>{
 var arrayNueva = _.clone(pixelArray);
-arrayNueva.splice(positionBar, BAR_LENGTH, barra);
-console.log(arrayNueva);
-senseLeds.setPixels(arrayNueva);
+arrayNueva.splice(56,8);
+const newLine = [0, 0, 0, 0, 0, 0, 0, 0];
+
+const lastRow = newLine.map((elem,i)=>{
+	if(i < posBar || i >= posBar + 4){
+		return O
+	}
+	return v;
+});
+
+
+senseLeds.setPixels([...arrayNueva,...lastRow]);
 
 });
+
+const newLine = [0,0,0,0,0,0,0,0];
+
+
 
 /*
 
