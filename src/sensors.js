@@ -1,9 +1,19 @@
 
 const imu = require("node-sense-hat").Imu;
 const JoystickLib = require("node-sense-hat").Joystick;
-
+const senseLeds = require('sense-hat-led');
+const barraColor = [255, 0, 0];
 
 const IMU = new imu.IMU();
+
+const barra = {
+	size: 2,
+	colour: barraColor,
+	positions: [[1, 3], [1, 4]]
+};
+const drawBarra = () => {
+	setPixel(barra.positions[0], barraColor);
+};
 
 // const pressCallback = (direction) = {
 //
